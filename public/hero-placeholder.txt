@@ -1,0 +1,13 @@
+HERO IMAGE INSTRUCTIONS
+=======================
+
+To add a hero background image:
+
+1. Add your hero image as: /public/hero.jpg
+2. Recommended dimensions: 1920x1080px or larger
+3. Format: JPG, PNG, or WebP
+4. The image should be professional and relevant to risk management/finance
+
+If no hero image is provided, the site will show a gradient background.
+
+Current fallback: Dark gradient from gray-900 to black to gray-800
