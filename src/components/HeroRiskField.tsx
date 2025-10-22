@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 export default function HeroRiskField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     // Check for reduced motion preference

@@ -17,11 +17,8 @@ export default function CashRunway({ timeSeries }: CashRunwayProps) {
         
         <div className="mb-6">
           <Sparkline 
-            data={timeSeries.map(d => ({ date: d.date, value: d.p50, baseline: d.base }))}
+            data={timeSeries}
             height={120}
-            color="#10b981"
-            showBaseline={true}
-            baselineColor="#71717a"
           />
         </div>
 

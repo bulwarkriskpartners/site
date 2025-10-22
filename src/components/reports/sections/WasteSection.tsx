@@ -19,7 +19,11 @@ interface WasteSectionProps {
 
 export default function WasteSection({ data }: WasteSectionProps) {
   // Mock waterfall data - in real implementation, this would come from the report data
-  const waterfallData = [
+  const waterfallData: Array<{
+    name: string;
+    value: number;
+    type: 'base' | 'positive' | 'negative' | 'total';
+  }> = [
     { name: 'Before', value: 1200000, type: 'base' },
     { name: 'SKU Rationalization', value: 240000, type: 'positive' },
     { name: 'Inventory Optimization', value: 180000, type: 'positive' },
