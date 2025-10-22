@@ -1,4 +1,219 @@
-This is a placeholder for the sample slides PDF.
-Please replace this file with your actual sample slides PDF.
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
 
-The file should be named `sample-slides.pdf` and placed in the `/public` directory.
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R 4 0 R 5 0 R]
+/Count 3
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 6 0 R
+/Resources <<
+/Font <<
+/F1 7 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 8 0 R
+/Resources <<
+/Font <<
+/F1 7 0 R
+>>
+>>
+>>
+endobj
+
+5 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 9 0 R
+/Resources <<
+/Font <<
+/F1 7 0 R
+>>
+>>
+>>
+endobj
+
+6 0 obj
+<<
+/Length 800
+>>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(EXECUTIVE RISK DIAGNOSTIC) Tj
+0 -30 Td
+/F1 12 Tf
+(Sample Risk Heatmap) Tj
+0 -30 Td
+/F1 10 Tf
+(Key Risk Categories: Vendor Concentration, Cash Flow, SKU Complexity) Tj
+0 -20 Td
+(High Risk Areas: 15% of vendors represent 80% of spend) Tj
+0 -15 Td
+(Medium Risk: Seasonal demand fluctuations) Tj
+0 -15 Td
+(Low Risk: Established customer base) Tj
+0 -30 Td
+/F1 12 Tf
+(Recommended Actions:) Tj
+0 -20 Td
+/F1 10 Tf
+(1. Diversify vendor portfolio - Target: Reduce top 3 vendor concentration) Tj
+0 -15 Td
+(2. Implement cash flow monitoring - Target: 90-day runway visibility) Tj
+0 -15 Td
+(3. SKU rationalization program - Target: Eliminate bottom 20% performers) Tj
+ET
+endstream
+endobj
+
+7 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+8 0 obj
+<<
+/Length 600
+>>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(SCENARIO ANALYSIS) Tj
+0 -30 Td
+/F1 12 Tf
+(Stress Test Results) Tj
+0 -30 Td
+/F1 10 Tf
+(Base Case: 180 days cash runway) Tj
+0 -20 Td
+(P50 Scenario: 165 days (-15 days)) Tj
+0 -15 Td
+(P95 Scenario: 120 days (-60 days)) Tj
+0 -30 Td
+/F1 12 Tf
+(Key Risk Factors:) Tj
+0 -20 Td
+/F1 10 Tf
+(• Supplier disruption: -30 days impact) Tj
+0 -15 Td
+(• Demand drop 20%: -25 days impact) Tj
+0 -15 Td
+(• Cost inflation 15%: -20 days impact) Tj
+0 -30 Td
+/F1 12 Tf
+(Mitigation Strategies:) Tj
+0 -20 Td
+/F1 10 Tf
+(• Diversify suppliers: +20 days buffer) Tj
+0 -15 Td
+(• Improve inventory turns: +15 days buffer) Tj
+ET
+endstream
+endobj
+
+9 0 obj
+<<
+/Length 700
+>>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(ACTION PLAN) Tj
+0 -30 Td
+/F1 12 Tf
+(Top 5 Priority Actions) Tj
+0 -30 Td
+/F1 10 Tf
+(1. VENDOR DIVERSIFICATION) Tj
+0 -15 Td
+(Owner: Procurement Director) Tj
+0 -10 Td
+(Timeline: 90 days) Tj
+0 -10 Td
+(Expected Impact: $520k cash protection) Tj
+0 -20 Td
+(2. CASH FLOW MONITORING) Tj
+0 -15 Td
+(Owner: CFO) Tj
+0 -10 Td
+(Timeline: 30 days) Tj
+0 -10 Td
+(Expected Impact: 30-day runway buffer) Tj
+0 -20 Td
+(3. SKU RATIONALIZATION) Tj
+0 -15 Td
+(Owner: Operations Manager) Tj
+0 -10 Td
+(Timeline: 60 days) Tj
+0 -10 Td
+(Expected Impact: $240k COGS reduction) Tj
+0 -20 Td
+(4. SUPPLIER RELATIONSHIPS) Tj
+0 -15 Td
+(Owner: VP Supply Chain) Tj
+0 -10 Td
+(Timeline: 45 days) Tj
+0 -10 Td
+(Expected Impact: Reduced concentration risk) Tj
+0 -20 Td
+(5. SCENARIO PLANNING) Tj
+0 -15 Td
+(Owner: Finance Team) Tj
+0 -10 Td
+(Timeline: 30 days) Tj
+0 -10 Td
+(Expected Impact: Better decision making) Tj
+ET
+endstream
+endobj
+
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000208 00000 n 
+0000000301 00000 n 
+0000000394 00000 n 
+0000001610 00000 n 
+0000002210 00000 n 
+0000002810 00000 n 
+trailer
+<<
+/Size 10
+/Root 1 0 R
+>>
+startxref
+3510
+%%EOF

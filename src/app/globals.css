@@ -1,7 +1,9 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap'); */
 
 :root {
-  --font-sans: var(--font-inter);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 }
 
 html {
@@ -9,17 +11,94 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
+  color: #A0A0A0; /* Lighter text for better readability on dark background */
+}
+
+/* Premium typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.02em; /* Premium letter spacing for headers */
+  color: #F5F5F5; /* Slightly off-white for premium feel */
+}
+
+/* Monospaced numbers for precision and institutional feel */
+.font-mono, .tabular-nums {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 /* Focus styles for accessibility */
 *:focus {
-  outline: 2px solid #ffffff;
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 1px solid #525252;
   outline-offset: 2px;
+}
+
+/* Disable mobile tap highlight globally */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Smooth scroll offset for sticky header */
 html {
   scroll-padding-top: 80px;
+}
+
+/* Premium button interactions */
+.premium-btn {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Glass morphism effect for cards */
+.glass-card {
+  backdrop-filter: blur(10px);
+  background: rgba(24, 24, 27, 0.6);
+  border: 1px solid rgba(63, 63, 70, 0.8);
+}
+
+/* Premium card hover effects */
+.premium-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Gold accent glow for premium elements */
+.gold-accent {
+  color: #D4AF37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* Premium animations */
+@keyframes premium-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes premium-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.premium-pulse {
+  animation: premium-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.premium-float {
+  animation: premium-float 3s ease-in-out infinite;
 }

@@ -1,0 +1,135 @@
+{
+  "client": {
+    "name": "Sample Manufacturing Co",
+    "slug": "sample-mfg",
+    "logoUrl": null
+  },
+  "report": {
+    "id": "2025q1",
+    "title": "Executive Risk Diagnostic",
+    "date": "2025-01-15",
+    "preparedBy": "Bulwark Risk Partners"
+  },
+  "summary": {
+    "bullets": [
+      "Identified 3 primary exposures driving cash and margin volatility.",
+      "Top-5 actions forecast $2.1M cash protection and +45 bps GM within 90 days.",
+      "Runway extends +35 days in P50 scenario after actions.",
+      "Supplier concentration risk reduced from 78% to 45% through dual-sourcing.",
+      "Slow-SKU rationalization frees $520k working capital."
+    ],
+    "topMetrics": [
+      {"label": "Cash protected", "value": 2100000, "fmt": "currency"},
+      {"label": "GM impact", "value": 45, "fmt": "bps"},
+      {"label": "Runway change", "value": 35, "fmt": "days"}
+    ]
+  },
+  "timeSeries": {
+    "runwayDays": [
+      {"date":"2025-01-01","base":62,"p50":58,"p95":45},
+      {"date":"2025-02-01","base":65,"p50":61,"p95":47},
+      {"date":"2025-03-01","base":68,"p50":64,"p95":50},
+      {"date":"2025-04-01","base":71,"p50":67,"p95":53},
+      {"date":"2025-05-01","base":74,"p50":70,"p95":56}
+    ]
+  },
+  "scenarios": [
+    {
+      "name":"P50",
+      "gmBpsImpact":35,
+      "cashImpact":1200000,
+      "drivers":[
+        {"label":"Supplier A delay","impact":0.5},
+        {"label":"FX +2%","impact":0.3},
+        {"label":"Tariff +1%","impact":0.2}
+      ]
+    },
+    {
+      "name":"P95",
+      "gmBpsImpact":-60,
+      "cashImpact":-800000,
+      "drivers":[
+        {"label":"Commodity +8%","impact":0.6},
+        {"label":"Demand -10%","impact":0.4}
+      ]
+    }
+  ],
+  "heatmap": {
+    "rows": ["Supplier A","Supplier B","Supplier C","Supplier D"],
+    "cols": ["SKU-1","SKU-2","SKU-3","SKU-4"],
+    "scores": [
+      [0.8,0.2,0.4,0.1],
+      [0.1,0.7,0.3,0.2],
+      [0.5,0.3,0.6,0.2],
+      [0.2,0.1,0.4,0.9]
+    ]
+  },
+  "vendors": [
+    {"name":"Supplier A","spendShare":0.32,"altSuppliers":1,"riskScore":0.78},
+    {"name":"Supplier B","spendShare":0.21,"altSuppliers":3,"riskScore":0.44},
+    {"name":"Supplier C","spendShare":0.18,"altSuppliers":2,"riskScore":0.52},
+    {"name":"Supplier D","spendShare":0.15,"altSuppliers":4,"riskScore":0.31}
+  ],
+  "skus": [
+    {"name":"SKU-1","revenueShare":0.22,"reorderDays":45,"slowMover":false},
+    {"name":"SKU-2","revenueShare":0.18,"reorderDays":52,"slowMover":false},
+    {"name":"SKU-3","revenueShare":0.15,"reorderDays":38,"slowMover":false},
+    {"name":"SKU-4","revenueShare":0.12,"reorderDays":67,"slowMover":false},
+    {"name":"SKU-5","revenueShare":0.08,"reorderDays":89,"slowMover":false},
+    {"name":"SKU-9","revenueShare":0.02,"reorderDays":180,"slowMover":true}
+  ],
+  "actions": [
+    {
+      "title":"Dual-source Supplier A",
+      "owner":"COO",
+      "threshold":">25% spend share",
+      "expectedImpact":800000,
+      "due":"2025-02-15",
+      "status":"In Flight"
+    },
+    {
+      "title":"Tariff pass-through on SKUs 1–3",
+      "owner":"VP Sales",
+      "threshold":"Tariff +1%",
+      "expectedImpact":420000,
+      "due":"2025-01-30",
+      "status":"Not Started"
+    },
+    {
+      "title":"Slow-SKU reorder policy (–10%)",
+      "owner":"Ops",
+      "threshold":"DSI > 120",
+      "expectedImpact":290000,
+      "due":"2025-03-01",
+      "status":"In Flight"
+    },
+    {
+      "title":"FX hedge on EUR exposure",
+      "owner":"CFO",
+      "threshold":"EUR > 15% revenue",
+      "expectedImpact":340000,
+      "due":"2025-02-28",
+      "status":"Not Started"
+    },
+    {
+      "title":"Inventory optimization algorithm",
+      "owner":"CTO",
+      "threshold":"Stock-out rate > 5%",
+      "expectedImpact":250000,
+      "due":"2025-04-01",
+      "status":"Not Started"
+    }
+  ],
+  "alerts": [
+    {"metric":"DSI","rule":"> 120 for 2 wks","owner":"Ops","escalation":"CEO"},
+    {"metric":"Supplier share","rule":"> 30% any single vendor","owner":"COO","escalation":"Board"},
+    {"metric":"Cash runway","rule":"< 60 days","owner":"CFO","escalation":"Board"},
+    {"metric":"FX exposure","rule":"> 20% revenue","owner":"CFO","escalation":"CEO"}
+  ],
+  "assumptions": [
+    "Risk score = Probability × Impact × Detectability (0–1 scaled).",
+    "Commodity shock modeled off last 3-year volatility.",
+    "FX rates based on 12-month forward curves.",
+    "Tariff scenarios assume 2024 baseline rates."
+  ]
+}

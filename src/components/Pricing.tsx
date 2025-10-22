@@ -16,8 +16,8 @@ export const TIER_LABELS: Record<TierKey, string> = {
 };
 
 export const PRICES: Record<Cycle, Record<TierKey, number>> = {
-  monthly:   { advisory: 2500, professional: 6000,  enterprise: 12000 },
-  quarterly: { advisory: 6000, professional: 14000, enterprise: 28000 },
+  monthly:   { advisory: 3500, professional: 6000,  enterprise: 12000 },
+  quarterly: { advisory: 8400, professional: 16800, enterprise: 33600 }, // 20% discount for quarterly
 };
 
 export const ONBOARDING_FEE: Record<TierKey, { amount: number; plus?: boolean }> = {
@@ -93,18 +93,20 @@ export default function Pricing({ calendlyUrl }: PricingProps) {
       <div className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="mb-12 text-center text-3xl font-semibold">Pricing & Services</h2>
 
-        {/* 10-Day Discovery & Blueprint Card */}
+        {/* Step 1 - Executive Risk Diagnostic */}
         <div className="mb-12 max-w-2xl mx-auto">
-          <div className="rounded-2xl border border-white/10 p-8 text-center">
-            <h3 className="mb-4 text-xl font-semibold">10-Day Discovery & Blueprint</h3>
+          <div className="rounded-2xl border border-white/20 p-8 text-center bg-gradient-to-r from-white/5 to-white/10">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-black text-xl font-bold">1</div>
+            <h3 className="mb-4 text-xl font-semibold">Executive Risk Diagnostic (10 days)</h3>
             <p className="mb-6 text-white/70">
-              Board-ready heatmap, 3 scenarios, cash runway, Top-5 actions.
+              We map exposures, run 3 stress tests, and deliver a board-ready plan with owners, thresholds, and expected $ impact. 45-min exec readout included.
             </p>
             <div className="mb-6">
-              <span className="text-3xl font-bold">from $5,000</span>
+              <span className="text-3xl font-bold">$3,000</span>
+              <span className="ml-2 text-lg text-white/70">(credited)</span>
             </div>
             <p className="mb-8 text-sm text-white/70">
-              100% credited to your first invoice on any plan (monthly or quarterly) if you proceed within 30 days.
+              Fully credited to your first invoice if you proceed within 30 days.
             </p>
             <div className="flex gap-3">
               <a
@@ -121,12 +123,18 @@ export default function Pricing({ calendlyUrl }: PricingProps) {
                 className="flex-1 rounded-md bg-white px-4 py-3 text-center text-sm font-medium text-black hover:bg-white/90 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
                 target="_blank"
                 rel="noopener noreferrer"
-                title={calendlyUrl === "#" ? "Link coming soon" : "Book Discovery"}
+                title={calendlyUrl === "#" ? "Link coming soon" : "Start Diagnostic"}
               >
-                BOOK DISCOVERY
+                START DIAGNOSTIC
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Step 2 Header */}
+        <div className="mb-8 text-center">
+          <h3 className="text-xl font-semibold">Step 2: Ongoing Programs</h3>
+          <p className="mt-2 text-white/70">3-month minimum commitment</p>
         </div>
 
         {/* Billing Cycle Toggle */}
@@ -148,7 +156,7 @@ export default function Pricing({ calendlyUrl }: PricingProps) {
               }`}
               aria-pressed={billingCycle === 'quarterly'}
             >
-              Quarterly
+              Quarterly <span className="ml-1 text-xs bg-green-500 text-black px-1.5 py-0.5 rounded-full">Save 20%</span>
             </button>
           </div>
         </div>
@@ -168,7 +176,7 @@ export default function Pricing({ calendlyUrl }: PricingProps) {
                   <span className="text-3xl font-bold">{formatPrice(PRICES[billingCycle][tier], billingCycle, tier)}</span>
                 </div>
                 <div className="mb-4 text-sm text-white/60">
-                  Onboarding (if starting without Discovery): ${ONBOARDING_FEE[tier].amount.toLocaleString()}{ONBOARDING_FEE[tier].plus ? '+' : ''} one-time.
+                  Onboarding (if starting without Diagnostic): ${ONBOARDING_FEE[tier].amount.toLocaleString()}{ONBOARDING_FEE[tier].plus ? '+' : ''} one-time.
                 </div>
                 <div className="mb-4 text-sm text-white/80 font-medium">
                   {WHO_ITS_FOR[tier]}
@@ -193,7 +201,10 @@ export default function Pricing({ calendlyUrl }: PricingProps) {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="mb-8 text-white/70">We price against quantified value; most clients see 4–6× ROI in protected cash or margin.</p>
+          <p className="mb-4 text-white/70">Most clients see 4–6× ROI in protected cash or margin within 90 days.</p>
+          <p className="mb-8 text-sm text-white/50">
+            If you don&apos;t see at least 2× your Diagnostic fee in identified cash or margin protection opportunities, we&apos;ll credit the Diagnostic to future advisory or refund it.
+          </p>
           <a
             href={calendlyUrl}
             className="inline-block rounded-md border border-white/25 px-6 py-3 text-sm font-medium hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
@@ -206,22 +217,73 @@ export default function Pricing({ calendlyUrl }: PricingProps) {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-16 max-w-2xl mx-auto">
-          <h3 className="mb-6 text-center text-xl font-semibold">FAQ</h3>
-          <div className="rounded-lg border border-white/10 p-6">
-            <h4 className="mb-2 text-sm font-medium text-white/90">Do you offer one-off engagements?</h4>
-            <p className="text-sm text-white/70">
-              Executive consultation (90 min) —{' '}
-              <a
-                href={calendlyUrl}
-                className="text-white/80 hover:text-white underline"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Book executive consultation"
-              >
-                $3,000
-              </a>
-            </p>
+        <div className="mt-16 max-w-4xl mx-auto">
+          <h3 className="mb-8 text-center text-xl font-semibold">FAQ</h3>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-lg border border-white/10 p-6">
+              <h4 className="mb-2 text-sm font-medium text-white/90">What data do you need?</h4>
+              <p className="text-sm text-white/70">
+                Minimal exports: COGS by SKU, vendor list, DSO/DSI/DPO, backlog, tariff exposure. 
+                Shared via read-only access or secure file transfer.
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 p-6">
+              <h4 className="mb-2 text-sm font-medium text-white/90">How fast is time-to-value?</h4>
+              <p className="text-sm text-white/70">
+                Executive Risk Diagnostic delivers actionable insights in 10 days. 
+                Ongoing programs provide monthly guardrails and quarterly deep-dives.
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 p-6">
+              <h4 className="mb-2 text-sm font-medium text-white/90">What if we have no FP&A?</h4>
+              <p className="text-sm text-white/70">
+                No problem. We work with basic financial data and can help identify 
+                the key metrics you need to track for risk management.
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 p-6">
+              <h4 className="mb-2 text-sm font-medium text-white/90">Will you talk to our vendors?</h4>
+              <p className="text-sm text-white/70">
+                Only with your explicit permission and as part of specific deep-dive 
+                analyses. We never contact vendors without your approval.
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 p-6">
+              <h4 className="mb-2 text-sm font-medium text-white/90">What counts as success?</h4>
+              <p className="text-sm text-white/70">
+                Measurable outcomes: cash protected, margin points gained, 
+                runway extended, stock-out reduction, or risk exposure quantified.
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 p-6">
+              <h4 className="mb-2 text-sm font-medium text-white/90">Money-back guarantee?</h4>
+              <p className="text-sm text-white/70">
+                If you don&apos;t see at least 2× your Diagnostic fee in identified 
+                opportunities, we&apos;ll credit or refund the Diagnostic fee.
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 p-6">
+              <h4 className="mb-2 text-sm font-medium text-white/90">Do you offer one-off engagements?</h4>
+              <p className="text-sm text-white/70">
+                Executive consultation (90 min) —{' '}
+                <a
+                  href={calendlyUrl}
+                  className="text-white/80 hover:text-white underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Book executive consultation"
+                >
+                  $3,000
+                </a>
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 p-6">
+              <h4 className="mb-2 text-sm font-medium text-white/90">NDA and confidentiality?</h4>
+              <p className="text-sm text-white/70">
+                Mutual NDA by default. No sharing of client data with third parties. 
+                All team members background-checked and bound by confidentiality.
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,136 @@
+{
+  "client": {
+    "name": "Sample Distribution Corp",
+    "slug": "sample-dist",
+    "logoUrl": null
+  },
+  "report": {
+    "id": "2025q1",
+    "title": "Executive Risk Diagnostic",
+    "date": "2025-01-15",
+    "preparedBy": "Bulwark Risk Partners"
+  },
+  "summary": {
+    "bullets": [
+      "Identified 4 critical distribution risks affecting fill rates and write-offs.",
+      "Top-5 actions forecast $845k write-offs avoided and +15% fill-rate improvement.",
+      "Stock-out rate reduced from 12% to 9% through inventory optimization.",
+      "Regional supplier concentration risk addressed through geographic diversification.",
+      "SKU rationalization eliminates $240k slow-moving inventory."
+    ],
+    "topMetrics": [
+      {"label": "Write-offs avoided", "value": 845000, "fmt": "currency"},
+      {"label": "Fill-rate improvement", "value": 15, "fmt": "percent"},
+      {"label": "Stock-out reduction", "value": 22, "fmt": "percent"}
+    ]
+  },
+  "timeSeries": {
+    "runwayDays": [
+      {"date":"2025-01-01","base":58,"p50":54,"p95":41},
+      {"date":"2025-02-01","base":61,"p50":57,"p95":44},
+      {"date":"2025-03-01","base":64,"p50":60,"p95":47},
+      {"date":"2025-04-01","base":67,"p50":63,"p95":50},
+      {"date":"2025-05-01","base":70,"p50":66,"p95":53}
+    ]
+  },
+  "scenarios": [
+    {
+      "name":"P50",
+      "gmBpsImpact":22,
+      "cashImpact":845000,
+      "drivers":[
+        {"label":"Fill-rate improvement","impact":0.4},
+        {"label":"Write-off reduction","impact":0.3},
+        {"label":"Inventory turns","impact":0.3}
+      ]
+    },
+    {
+      "name":"P95",
+      "gmBpsImpact":-35,
+      "cashImpact":-420000,
+      "drivers":[
+        {"label":"Demand shock -15%","impact":0.5},
+        {"label":"Supplier disruption","impact":0.3},
+        {"label":"Transportation cost +20%","impact":0.2}
+      ]
+    }
+  ],
+  "heatmap": {
+    "rows": ["Northeast","Southeast","Midwest","West"],
+    "cols": ["Consumer","Industrial","Healthcare","Automotive"],
+    "scores": [
+      [0.7,0.3,0.5,0.2],
+      [0.4,0.8,0.2,0.6],
+      [0.6,0.2,0.7,0.4],
+      [0.3,0.5,0.4,0.9]
+    ]
+  },
+  "vendors": [
+    {"name":"Regional Supplier NE","spendShare":0.28,"altSuppliers":2,"riskScore":0.65},
+    {"name":"Regional Supplier SE","spendShare":0.24,"altSuppliers":3,"riskScore":0.48},
+    {"name":"Regional Supplier MW","spendShare":0.22,"altSuppliers":2,"riskScore":0.52},
+    {"name":"Regional Supplier W","spendShare":0.18,"altSuppliers":4,"riskScore":0.38}
+  ],
+  "skus": [
+    {"name":"Consumer-A","revenueShare":0.25,"reorderDays":35,"slowMover":false},
+    {"name":"Consumer-B","revenueShare":0.20,"reorderDays":42,"slowMover":false},
+    {"name":"Industrial-X","revenueShare":0.18,"reorderDays":55,"slowMover":false},
+    {"name":"Industrial-Y","revenueShare":0.15,"reorderDays":48,"slowMover":false},
+    {"name":"Healthcare-Z","revenueShare":0.12,"reorderDays":72,"slowMover":false},
+    {"name":"Slow-Mover-1","revenueShare":0.03,"reorderDays":150,"slowMover":true}
+  ],
+  "actions": [
+    {
+      "title":"Geographic supplier diversification",
+      "owner":"VP Procurement",
+      "threshold":">30% regional concentration",
+      "expectedImpact":320000,
+      "due":"2025-02-15",
+      "status":"In Flight"
+    },
+    {
+      "title":"Fill-rate optimization algorithm",
+      "owner":"CTO",
+      "threshold":"Fill-rate < 95%",
+      "expectedImpact":280000,
+      "due":"2025-01-30",
+      "status":"Not Started"
+    },
+    {
+      "title":"Slow-SKU elimination program",
+      "owner":"VP Operations",
+      "threshold":"Revenue share < 5%",
+      "expectedImpact":240000,
+      "due":"2025-03-01",
+      "status":"In Flight"
+    },
+    {
+      "title":"Transportation cost hedging",
+      "owner":"CFO",
+      "threshold":"Fuel cost > 8% COGS",
+      "expectedImpact":180000,
+      "due":"2025-02-28",
+      "status":"Not Started"
+    },
+    {
+      "title":"Demand forecasting enhancement",
+      "owner":"VP Analytics",
+      "threshold":"Forecast accuracy < 85%",
+      "expectedImpact":150000,
+      "due":"2025-04-01",
+      "status":"Not Started"
+    }
+  ],
+  "alerts": [
+    {"metric":"Fill rate","rule":"< 95% for 3 days","owner":"VP Operations","escalation":"CEO"},
+    {"metric":"Regional concentration","rule":"> 30% any region","owner":"VP Procurement","escalation":"Board"},
+    {"metric":"Write-off rate","rule":"> 2% monthly","owner":"CFO","escalation":"CEO"},
+    {"metric":"Transportation cost","rule":"> 10% COGS","owner":"CFO","escalation":"Board"}
+  ],
+  "assumptions": [
+    "Risk score = Probability × Impact × Detectability (0–1 scaled).",
+    "Regional demand patterns based on 24-month historical data.",
+    "Transportation costs modeled on current fuel price volatility.",
+    "Supplier reliability based on past 18-month performance data."
+  ]
+}
